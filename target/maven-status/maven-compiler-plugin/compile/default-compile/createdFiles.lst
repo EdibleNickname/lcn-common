@@ -1,6 +1,0 @@
-com\can\util\email\EmailUtil.class
-com\can\util\json\JsonUtil.class
-com\can\response\Response.class
-com\can\util\email\model\Email.class
-com\can\response\enums\RoleName.class
-com\can\response\enums\ResponseEnum.class
