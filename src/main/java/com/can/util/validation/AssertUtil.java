@@ -44,8 +44,6 @@ public class AssertUtil {
 	 */
 	public static void isEmail(String eMail, String msg){
 
-		String alertStr = "邮箱格式不正确";
-
 		// 邮箱为空
 		if(StringUtils.isEmpty(eMail)) {
 			throw new AssertException("邮箱为空");
