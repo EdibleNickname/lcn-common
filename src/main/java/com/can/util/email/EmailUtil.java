@@ -109,7 +109,11 @@ public class EmailUtil {
 	private Template getTemplate(String templateName) throws Exception{
 		Template emailTemplate = null;
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_27);
-		cfg.setClassLoaderForTemplateLoading(ClassLoader.getSystemClassLoader(),"ftl");
+
+		/** 使用下面的方法，以jar的形式启动 classLoader错误, 导致加载不到模板 */
+	/*	cfg.setClassLoaderForTemplateLoading(ClassLoader.getSystemClassLoader(),"/ftl"); **/
+
+		cfg.setClassForTemplateLoading(EmailUtil.class, "/ftl");
 		emailTemplate = cfg.getTemplate(templateName, encoding);
 		return emailTemplate ;
 	}
