@@ -11,7 +11,7 @@
 
     <name>lcn-common</name>
     <packaging>jar</packaging>
-    <description>lcn的工具包, 优先考虑了spring-boot,所以有些功能只能在spring-boot上器作用</description>
+    <description>lcn的工具包, 优先考虑了spring-boot,所以有些功能只能在spring-boot上起作用</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,6 +23,7 @@
         <jackson.version>2.9.5</jackson.version>
         <email.version>1.6.1</email.version>
         <freemarker.version>2.3.28</freemarker.version>
+        <apache.commons.lang>3.7</apache.commons.lang>
         <testng.version>6.14.3</testng.version>
 
     </properties>
@@ -80,6 +81,13 @@
             <version>${freemarker.version}</version>
         </dependency>
 
+        <!--字符串工具-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache.commons.lang}</version>
+        </dependency>
+
         <!--测试：testNG-->
         <dependency>
             <groupId>org.testng</groupId>
@@ -87,6 +95,8 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
+
 
 
     </dependencies>
