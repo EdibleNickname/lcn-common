@@ -20,11 +20,11 @@
 
         <spring.version>5.0.6.RELEASE</spring.version>
         <logback.version>1.2.3</logback.version>
-        <jackson.version>2.9.5</jackson.version>
         <email.version>1.6.1</email.version>
         <freemarker.version>2.3.28</freemarker.version>
-        <apache.commons.lang>3.7</apache.commons.lang>
+        <apache.commons.lang.version>3.7</apache.commons.lang.version>
         <testng.version>6.14.3</testng.version>
+        <fast.json.version>1.2.47</fast.json.version>
 
     </properties>
 
@@ -50,22 +50,12 @@
             </exclusions>
         </dependency>
 
-        <!-- json -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fast.json.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
+
 
         <!--email-->
         <dependency>
@@ -85,7 +75,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>${apache.commons.lang}</version>
+            <version>${apache.commons.lang.version}</version>
         </dependency>
 
         <!--测试：testNG-->
