@@ -2,7 +2,9 @@ package com.can.util.regex;
 
 
 import com.can.util.regex.expression.ExpressionEnum;
-import com.can.util.validation.AssertUtil;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,6 +16,8 @@ import java.util.regex.Pattern;
  */
 public class RegexUtil {
 
+	private final static Logger log = LoggerFactory.getLogger(RegexUtil.class);
+
 	/**
 	 * 正则校验邮箱格式是否正确
 	 *
@@ -22,7 +26,10 @@ public class RegexUtil {
 	 */
 	public static boolean isEmail(String eMail) {
 
-		AssertUtil.isEmpty(eMail, "邮箱不能为空");
+		if(StringUtils.isEmpty(eMail)) {
+			log.info("需要验证的邮箱为空");
+			return false;
+		}
 
 		// 开始验证
 		return valid(ExpressionEnum.EMAIL.getRegexExpression(), eMail);
@@ -37,9 +44,17 @@ public class RegexUtil {
 	 */
 	public static boolean timeIsCorrect(String time, String format) {
 
-		AssertUtil.isEmpty(time, "需要验证的时间不能为空");
+		// 需要验证的时间不能为空
+		if(StringUtils.isEmpty(time)) {
+			log.info("需要验证的时间为空");
+			return false;
+		}
 
-		AssertUtil.isEmpty(format, "需要验证的时间格式不能为空");
+		// 需要验证的时间格式不能为空
+		if(StringUtils.isEmpty(format)) {
+			log.info("需要验证的时间格式为空");
+			return false;
+		}
 
 		// 开始验证
 		return valid(format, time);
@@ -59,7 +74,6 @@ public class RegexUtil {
 		if(matcher.matches()) {
 			return true;
 		}
-
 		return false;
 	}
 }

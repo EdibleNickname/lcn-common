@@ -37,7 +37,7 @@ import java.util.Properties;
 
 public class EmailUtil {
 
-	private static Logger logger = LoggerFactory.getLogger(EmailUtil.class);
+	private static Logger log = LoggerFactory.getLogger(EmailUtil.class);
 
 	/** 发送方邮件地址 */
 	@Value("${spring.mail.username:2659471464@qq.com}")
@@ -78,10 +78,10 @@ public class EmailUtil {
 
 			startSendEmail(session,mimeMessage);
 
-			logger.info("给-----{}-----的邮件发送成功", email.getReceiverEmail());
+			log.info("给-----{}-----的邮件发送成功", email.getReceiverEmail());
 
 		} catch (Exception e) {
-			logger.error("邮件发送出现异常-------->", e);
+			log.error("邮件发送出现异常-------->", e);
 		}
 	}
 
